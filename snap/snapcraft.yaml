@@ -32,11 +32,14 @@ parts:
     source: http://www.streamboard.tv/svn/oscam/trunk
     source-type: svn
     override-build: | 
+        ./config -v
+        ./config -r
         ./config.sh --disable all --enable WEBIF WEBIF_LIVELOG WEBIF_JQUERY TOUCH READER_NAGRA READER_VIDEOGUARD CARDREADER_PHOENIX 
         make CONF_DIR=$SNAP_DATA/oscam USE_LIBUSB=1
         mkdir -p ../install/usr/bin
         rm Distribution/oscam-*.debug
         cp Distribution/oscam-* ../install/usr/bin/oscam
+        ../install/usr/bin/oscam --build-info
     build-packages:
       - libusb-1.0-0-dev
     stage-packages:
