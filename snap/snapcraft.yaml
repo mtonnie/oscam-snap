@@ -18,11 +18,11 @@ confinement: devmode
 apps:
   oscam:
     command: usr/bin/oscam
-      daemon: simple
-      plugs:
-        - network
-        - network-bind
-        - serial-port
+    daemon: simple
+    plugs:
+      - network
+      - network-bind
+      - serial-port
 
 parts:
   oscam:
