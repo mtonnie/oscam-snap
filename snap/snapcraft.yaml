@@ -1,9 +1,7 @@
 name: oscam 
 version: 'latest' 
 version-script: |
-  pwd 
-  ls 
-  echo $(confis.sh -v)-$(config.sh -r) 
+  echo 1-$(pwd)
 summary: Open Source Conditional Access Module software 
 description: |
   to be completed
