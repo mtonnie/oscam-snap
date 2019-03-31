@@ -1,7 +1,7 @@
 name: oscam 
 version: 'latest' 
 version-script: |
-  echo  $(/build/oscam/parts/oscam/build/config.sh -v)-$(/build/oscam/parts/oscam/build/config.sh -r) | sed 's/_svn//g'
+  echo  $(/build/oscam/parts/oscam/build/config.sh -v)-$(/build/oscam/parts/oscam/build/config.sh -r) | sed 's/_/+/g'
 summary: Open Source Conditional Access Module software 
 description: |
   to be completed
