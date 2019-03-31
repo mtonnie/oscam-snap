@@ -42,7 +42,7 @@ parts:
     source: http://www.streamboard.tv/svn/oscam/trunk
     source-type: svn
     override-build: | 
-        #mkdir -p "$SNAPCRAFT_PART_INSTALL/usr/local/bin"
+        mkdir -p "$SNAPCRAFT_PART_INSTALL/usr/bin"
         ./config.sh --disable all --enable WEBIF WEBIF_LIVELOG WEBIF_JQUERY TOUCH READER_NAGRA READER_VIDEOGUARD CARDREADER_PHOENIX HAVE_DVBAPI
         MAKEOPTS="USE_LIBUSB=1 USE_UTF8=1"
         #MAKEOPTS="$MAKEOPTS CONF_DIR='$SNAP_DATA/oscam'"
