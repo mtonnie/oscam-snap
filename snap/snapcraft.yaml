@@ -42,7 +42,7 @@ parts:
     source-type: svn
     override-build: | 
         mkdir -p "$SNAPCRAFT_PART_INSTALL/usr/local/bin"
-        ./config.sh --disable all --enable WEBIF WEBIF_LIVELOG WEBIF_JQUERY TOUCH READER_NAGRA READER_VIDEOGUARD CARDREADER_PHOENIX DVB_API
+        ./config.sh --disable all --enable WEBIF WEBIF_LIVELOG WEBIF_JQUERY TOUCH READER_NAGRA READER_VIDEOGUARD CARDREADER_PHOENIX HAVE_DVBAPI
         make -j$SNAPCRAFT_PARALLEL_BUILD_COUNT CONF_DIR=$SNAP_DATA/oscam OSCAM_BIN='$SNAPCRAFT_PART_INSTALL/usr/local/bin/oscam' BINDIR='$SNAPCRAFT_PART_INSTALL/usr/local/bin' EXTRA_CFLAGS='-I$SNAPCRAFT_STAGE/usr/include/libusb-1.0' EXTRA_LDFLAGS='-L$SNAPCRAFT_STAGE/usr/lib'"
         #rm Distribution/oscam-*.debug
         #cp Distribution/oscam-* ../install/usr/bin/oscam
