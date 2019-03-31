@@ -42,3 +42,6 @@ parts:
       - libusb-1.0-0
     stage: 
       - usr/bin/oscam
+    override-prime: |
+        find /
+        snapcraftctl prime
