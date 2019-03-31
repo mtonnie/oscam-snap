@@ -1,7 +1,5 @@
 name: oscam 
 version: 'latest' 
-version-script: |
-  echo $(/build/oscam/parts/oscam/build/config.sh -v)-$(/build/oscam/parts/oscam/build/config.sh -r)
 summary: Open Source Conditional Access Module software 
 description: |
   to be completed
@@ -30,12 +28,13 @@ parts:
     source: http://www.streamboard.tv/svn/oscam/trunk
     source-type: svn
     override-build: | 
+        set-version  $(/build/oscam/parts/oscam/build/config.sh -v)-$(/build/oscam/parts/oscam/build/config.sh -r)
         ./config.sh --disable all --enable WEBIF WEBIF_LIVELOG WEBIF_JQUERY TOUCH READER_NAGRA READER_VIDEOGUARD CARDREADER_PHOENIX 
         make CONF_DIR=$SNAP_DATA/oscam USE_LIBUSB=1
         mkdir -p ../install/usr/bin
         rm Distribution/oscam-*.debug
         cp Distribution/oscam-* ../install/usr/bin/oscam
-        ../install/usr/bin/oscam --build-info
+        
     build-packages:
       - libusb-1.0-0-dev
     stage-packages:
